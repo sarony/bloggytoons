@@ -1,8 +1,8 @@
 class SiteGenerator
+  attr_accessor :posts
 
   def initialize
-    @posts=Posts.all
-    self.run
+    @posts=Cartoon.all
   end
 
   def generate
@@ -16,7 +16,7 @@ class SiteGenerator
 
   def generate_posts
     @posts.each do |post|
-      create_page("posts/#{post.name}")
+      create_page("post.erb.html", "posts/#{post.html_page}" )
     end
   end
 
