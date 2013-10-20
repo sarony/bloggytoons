@@ -1,7 +1,6 @@
 class FileParser
   attr_accessor :cartoon_path, :blog_path
 
-
   def initialize
     @cartoon_path=Dir.glob("_site/images/*.png")
     @blog_path=Dir.glob("_site/blog-posts/")
@@ -9,7 +8,10 @@ class FileParser
 
   def parse_cartoons
     @cartoon_path.each do |filename|
-      Cartoon.new.tap{|f| f.filename=filename}
+      c = Cartoon.new.tap do |f| 
+        f.filename=filename 
+        f.get_assets
+      end
     end
   end
 

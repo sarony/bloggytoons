@@ -14,16 +14,25 @@ class SiteGenerator
     create_page("index.html", "index.html.erb")
   end
 
+  def draw
+    @post=Cartoon.all[3]
+    create_page("posts/will-draw.html", "post.erb.html")
+  end
+
   def generate_posts
     @posts.each do |post|
-      create_page("post.erb.html", "posts/#{post.html_page}" )
+      @post=post
+      create_page("posts/#{post.href}", "post.erb.html")
     end
   end
 
-  def create_page(template, html)
-    erb = ERB.new(File.open("lib/views/#{template}").read)
+  def create_from_erb(template)
+    ERB.new(File.open("lib/views/#{template}").read)
+  end
+
+  def create_page(html, template)
     File.open("_site/#{html}", "w+") do |f|
-      f<<erb.result(binding)
+      f<<create_from_erb(template).result(binding)
     end
   end
 
@@ -32,3 +41,5 @@ class SiteGenerator
   end
 
 end
+
+# :title, :href, :image_path, :filename

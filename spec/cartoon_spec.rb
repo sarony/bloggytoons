@@ -5,7 +5,7 @@ require "spec_helper.rb"
 
     describe ".set_image_path" do
       it "sets the path for the image src" do
-        cartoon.set_image_path.should eq("images/git-kitchen-chef.png")
+        cartoon.set_image_path.should eq("../images/git-kitchen-chef.png")
       end
     end
 
@@ -35,7 +35,7 @@ require "spec_helper.rb"
         Cartoon.reset
         Cartoon.all.should eq([])
         cartoon.get_assets
-        cartoon.image_path.should eq("images/git-kitchen-chef.png")
+        cartoon.image_path.should eq("../images/git-kitchen-chef.png")
         cartoon.set_href.should eq("git-kitchen-chef.html")
         cartoon.set_title.should eq("Git Kitchen Chef")
       end
