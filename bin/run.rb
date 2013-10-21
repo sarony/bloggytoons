@@ -4,3 +4,4 @@ p=FileParser.new
 p.parse_cartoons
 s=SiteGenerator.new
 s.generate_posts
+s.generate_index

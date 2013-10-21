@@ -11,18 +11,18 @@ class SiteGenerator
   end
 
   def generate_index
-    create_page("index.html", "index.html.erb")
-  end
-
-  def draw
-    @post=Cartoon.all[3]
-    create_page("posts/will-draw.html", "post.erb.html")
+    @header = ERB.new(File.open('lib/views/_header.erb.html').read).result(binding)
+    @footer = ERB.new(File.open('lib/views/_footer.erb.html').read).result(binding)
+    create_page("index.html", "index.erb.html")
+    
   end
 
   def generate_posts
     @posts.each do |post|
       @post=post
+      @header = ERB.new(File.open('lib/views/_header.erb.html').read).result(binding)
       create_page("posts/#{post.href}", "post.erb.html")
+      @footer = ERB.new(File.open('lib/views/_footer.erb.html').read).result(binding)
     end
   end
 

@@ -10,11 +10,7 @@
   <link rel='stylesheet' href="../css/style.css" type='text/css' media='all' />
   <style>
     .top-page-title {
-      background: url(<%= @post.image_path %>) no-repeat top center;
-      height: 1000px;
-    }
-    .services-title {
-       background: url(http://students.flatironschool.com//students/../img/img245.jpg) no-repeat top center;
+      height: auto;
     }
   </style>
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
@@ -25,32 +21,7 @@
   <!-- Begin Main Wrapper -->
   <div class="main-wrapper">
     <!-- Begin Header -->
-    <div class="header-wrapper">
-      <div class="header">
-        <div class="header-left">
-          <h1 class="logo-text">
-            <a href="#" title="Bloggytoons">
-              bloggytoons
-            </a>
-          </h1>
-        </div>
-        <div class="header-right">
-          <div class="menu-header-container">
-            <ul id="nav" class="nav">
-              <li>
-                <a href="#">Code</a>
-              </li>
-              <li><a href="http://info.flatironschool.com/summer-2013-application"><font >LinkedIn</font></a>
-              </li>
-              <li>
-                <a href="http://flatironschool.com/employers.html">Twitter</a>
-              </li>
-          </div>
-          <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-      </div>
-    </div>
+    <%= @header %>
     <!-- End Header -->
     <!-- End Header -->
 
@@ -58,9 +29,9 @@
     <div class="container">
 
       <!-- Begin Splash Image -->
-      <div class="top-page-title "> 
+      <div class="top-page-title"> 
   
-          <img class="student_pic">
+          <img src=<%= @post.image_path %>>
      
       </div>
       <! -- End Splash Image -->
@@ -78,9 +49,7 @@
               <div class="services-wrap" id="equalize">
                 <div id="ok-text-column-2" class="column ok-text-column" style="height: 204px;">
                   <div class="services">
-                    <div class="services-title">
-                      <h3>Favorite Cities</h3>
-                    </div>
+                    
                     <div class="clear"></div>
  
                   </div>
@@ -88,7 +57,8 @@
 
                 <div id="ok-text-column-3" class="column ok-text-column" style="height: 204px;">
                   <div class="services">
-                    <div class="services-title">
+                    <div class="more-button">
+                      <h3><a href="../index.html">MORE</a></h3>
                   </div>
                   <div class="clear"></div>
  
@@ -97,9 +67,7 @@
 
               <div id="ok-text-column-4" class="column ok-text-column" style="height: 204px;">
                 <div class="services">
-                  <div class="services-title">
-      
-                  </div>
+
 
                 </div>
               </div>
@@ -117,42 +85,7 @@
   <!-- End Footer Widgets -->
 
   <!-- Begin Footer -->
-  <div class="footer">
-    <div class="footer-text">
-      <div class="footer-text-left">
-        <div class="menu">
-          <ul>
-            <li>
-              <a href="index.html">
-                <i class="icon-home icon-2x"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/flatironschool">
-                <i class="icon-twitter icon-2x"></i>
-              </a>
-            </li>
-            <li>
-              <a href="http://www.linkedin.com/company/the-flatiron-school">
-                <i class="icon-linkedin-sign icon-2x"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/organizations/flatiron-school">
-                <i class="icon-github-alt icon-2x"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-text-right">
-        <div class="copyright">
-          &copy; 2013. Saron Yitbarek. Let's get coffee.
-        </div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
+  <%= @footer %>
   <!-- End Footer -->
   
   <script type='text/javascript' src="../js/jquery.js"></script>
