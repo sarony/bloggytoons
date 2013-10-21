@@ -3,6 +3,7 @@ class FileParser
 
   def initialize
     @cartoon_path=Dir.glob("_site/images/*.png")
+    @thumbnail_path=Dir.glob("_site/images/thumnails/*.png")
     @blog_path=Dir.glob("_site/blog-posts/")
   end
 
@@ -19,6 +20,14 @@ class FileParser
     @blog_path.each do |filename|
       Blog.new.tap{|f| f.filename=filename}
     end 
+  end
+
+  def parse_cartoons
+    @thumbnail_path.each do |thumbnail|
+      Cartoon.all.each do |cartoon|
+        cartoon.thumbail = thumbnail if thumbnail.include?(cartoon.filename.gsub(/(.png)/,"")
+      end
+    end
   end
 
 end

@@ -1,5 +1,5 @@
 class Cartoon
-attr_accessor :title, :href, :image_path, :filename
+attr_accessor :title, :href, :image_path, :filename, :thumbnail
 
 @@cartoons = []
 
