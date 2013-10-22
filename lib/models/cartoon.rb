@@ -30,10 +30,6 @@ attr_accessor :title, :href, :image_path, :filename, :thumbnail
     self.href = self.path.gsub(/(images)/, "").delete("/").gsub(/(png)/,"html")
   end
 
-  def get_images
-      image.thumbnail = ""
-  end 
-
   def self.all
     @@cartoons
   end
